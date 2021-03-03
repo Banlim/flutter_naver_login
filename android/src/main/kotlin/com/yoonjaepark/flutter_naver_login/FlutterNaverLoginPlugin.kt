@@ -74,8 +74,10 @@ class FlutterNaverLoginPlugin: FlutterPlugin, MethodCallHandler, ActivityAware {
     methodChannel?.setMethodCallHandler(this)
     try {
       e = mContext?.packageName;
-
-      ai = mContext?.packageManager?.getApplicationInfo(e, PackageManager.GET_META_DATA)
+      val temp = e;
+      
+      if(temp != null)
+        ai = mContext?.packageManager?.getApplicationInfo(e, PackageManager.GET_META_DATA)
 
       bundle = ai?.metaData;
 
